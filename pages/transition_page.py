@@ -8,6 +8,7 @@ from data import Urls
 class TransitionPage(BasePage):
     @allure.step('Переход на другую страницу по клику на логотип')
     def transition_via_logo(self, locator):
+        self.safe_submit_cookie_button(GeneralLocators.COOKIE_BUTTON_LOCATOR)
         self.click_to_element(locator)
         self.switch_to_last_tab()
 
@@ -19,12 +20,10 @@ class TransitionPage(BasePage):
     
     @allure.step('Переход по клику на логотип Яндекса и проверка успешности операции')
     def check_yandex_logo_transition(self):
-        self.safe_submit_cookie_button(GeneralLocators.COOKIE_BUTTON_LOCATOR)
         self.transition_via_logo(TransitionPageLocators.LOGO_YANDEX)
         return self.is_transition_success(Urls.DZEN_PAGE, TransitionPageLocators.BUTTON_DZEN_SEARCH)
     
     @allure.step('Переход по клику на логотип Самоката и проверка успешности операции')
     def check_scooter_logo_transition(self):
-        self.safe_submit_cookie_button(GeneralLocators.COOKIE_BUTTON_LOCATOR)
         self.transition_via_logo(TransitionPageLocators.LOGO_SCOOTER)
         return self.is_transition_success(Urls.MAIN_PAGE, TransitionPageLocators.IMG_MAIN_PAGE_SCOOTER)
