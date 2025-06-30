@@ -44,7 +44,6 @@
 ---
 
 ## Фикстуры
-- **chrome_driver**: Chrome в инкогнито (1400x800)
 - **firefox_driver**: Firefox в приватном режиме (1400x800)
 
 ## Тестовые данные
@@ -52,3 +51,6 @@
 - Вопросы-ответы (QNA_DATA)
 - Данные для заказов (ORDER_DATA_1, ORDER_DATA_2)
 - URL-адреса страниц (Urls)
+
+## Открыть отчет Allure
+- allure open allure-report
