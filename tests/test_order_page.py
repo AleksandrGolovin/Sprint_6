@@ -2,28 +2,29 @@ import pytest
 import allure
 from locators.main_page_locators import MainPageLocators
 from pages.order_page import OrderPage
-from data import Urls, ORDER_DATA
+from data import Urls, ORDER_DATA_1, ORDER_DATA_2
 
 @allure.title('Тестовые сценарии страницы заказов')
 class TestOrderPage:
     "Тестовые сценарии для страницы заказов"
 
     @allure.title('Проверка регистрации заказа')
-    @allure.description('')
-    @pytest.mark.parametrize('locator, order_data', [
-        (MainPageLocators.BUTTON_ORDER_UPPER, ORDER_DATA)
+    @allure.description('Перейти на главную страницу, нажать кнопку "Заказать", заполнить данные для заказа, проверить, что появилось сообщение об успешном завершении заказа')
+    @pytest.mark.parametrize('create_order_locator, order_data', [
+        (MainPageLocators.BUTTON_ORDER_UPPER, ORDER_DATA_1),
+        (MainPageLocators.BUTTON_ORDER_LOWER, ORDER_DATA_2)
     ])
-    def test_questions_and_answers(self, locator, order_data, driver):
-        """Проверка блока вопросов и ответов на главной странице
+    def test_create_order(self, create_order_locator, order_data, firefox_driver):
+        """Проверка регистрации заказа
 
         Args:
-            index (int): номер (индекс) вопроса
-            driver (WebDriver): драйвер браузера (Selenium)
+            create_order_locator (tuple(By, str)): локатор кнопки "Заказать"
+            order_data (dict[str, str]): словарь с данными
+            firefox_driver (WebDriver): драйвер браузера Firefox
         """
-        order_page = OrderPage(driver)
+        order_page = OrderPage(firefox_driver)
         order_page.go_to_url(Urls.MAIN_PAGE)
-        order_page.click_to_element(locator)
-
+        order_page.begin_create_order(create_order_locator)
         order_page.create_order(order_data)
-
-        assert True
+        
+        assert order_page.check_order_is_success()

@@ -10,16 +10,33 @@ QNA_DATA = [
     ('Я жизу за МКАДом, привезёте?', 'Да, обязательно. Всем самокатов! И Москве, и Московской области.')
 ]
 
-ORDER_DATA = {
+# Данные для заполнения заказа 1
+ORDER_DATA_1 = {
     "first_name": "Имя",
     "last_name": "Фамилия",
     "address": "г. Москва, ул. Тверская, д. 14",
     "station": "Преображенская площадь",
     "phone": "+71234567890",
     "date": "12.12.2025",
-    "period": "трое суток"
+    "period": "трое суток",
+    "color": "black",
+    "comment": "Привет, курьер!"
 }
 
+# Данные для заполнения заказа 2
+ORDER_DATA_2 = {
+    "first_name": "Фест",
+    "last_name": "Ласт",
+    "address": "г. Лобня, ул. Калинина, д. 10",
+    "station": "Лихоборы",
+    "phone": "+73334445566",
+    "date": "10.10.2025",
+    "period": "сутки",
+    "color": "grey",
+    "comment": "Курьер - красаучег!"
+}
+
+# Адреса страниц
 class Urls:
     MAIN_PAGE = 'https://qa-scooter.praktikum-services.ru/'
     ORDER_PAGE = 'https://qa-scooter.praktikum-services.ru/order'

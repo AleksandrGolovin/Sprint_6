@@ -13,4 +13,8 @@ class OrderPageLocators:
     DIV_CALENDAR_DAY = By.XPATH, ".//div[@class='react-datepicker__week']/div[contains(@class, 'react-datepicker__day--selected')]"
     DIV_PERIOD = By.XPATH, ".//div[@class='Dropdown-control']"
     DIV_PERIOD_DROPDOWN = By.XPATH, ".//div[@class='Dropdown-option' and text()='{data}']"
+    INPUT_COLOR = By.ID, "{data}"
+    INPUT_COMMENT = By.XPATH, ".//input[@placeholder='Комментарий для курьера']"
     BUTTON_SUBMIT_ORDER = By.XPATH, ".//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']"
+    BUTTON_YES = By.XPATH, ".//div[@class='Order_Buttons__1xGrp']/button[text()='Да']"
+    DIV_SUCCESS_LABEL = By.XPATH, ".//div[@class='Order_ModalHeader__3FDaJ']"
