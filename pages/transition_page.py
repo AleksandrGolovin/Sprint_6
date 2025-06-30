@@ -14,9 +14,9 @@ class TransitionPage(BasePage):
 
     @allure.step('Проверка успешного перехода')
     def is_transition_success(self, dest_url, element_locator):
-        current_url = self.get_current_url()
+        self.wait_for_url(dest_url)
         element = self.find_element_with_wait(element_locator)
-        return dest_url in current_url and element.is_displayed()
+        return element.is_displayed()
     
     @allure.step('Переход по клику на логотип Яндекса и проверка успешности операции')
     def check_yandex_logo_transition(self):

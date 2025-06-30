@@ -16,10 +16,6 @@ class BasePage:
         "Перейти на страницу по адресу"
         self.driver.get(url)
 
-    def get_current_url(self):
-        "Получить адрес текущий страницы"
-        return self.driver.current_url
-
     def find_element_with_wait(self, locator):
         "Найти элемент на странице"
         self.wait.until(ec.visibility_of_element_located(locator))
@@ -42,8 +38,11 @@ class BasePage:
     def scroll_to_element(self, locator):
         "Пролистать страницу до элемента"
         element = self.find_element_with_wait(locator)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
+        try:
+            actions = ActionChains(self.driver)
+            actions.move_to_element(element).perform()
+        except:
+            self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     def format_locator(self, locator_unformatted, element_data):
         """Форматировать локатор по метке {data}
@@ -67,5 +66,10 @@ class BasePage:
             return
         
     def switch_to_last_tab(self):
+        "Переключиться на последнюю вкладку"
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
+
+    def wait_for_url(self, url_part):
+        "Подождать загрузки URL, в котором содержится искомый фрагмент"
+        self.wait.until(ec.url_contains(url_part))
