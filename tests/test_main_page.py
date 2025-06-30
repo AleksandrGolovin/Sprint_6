@@ -20,7 +20,6 @@ class TestMainPage:
         """
         main_page = MainPage(driver)
         main_page.go_to_url(Urls.MAIN_PAGE)
-        main_page.safe_submit_cookie_button(GeneralLocators.COOKIE_BUTTON_LOCATOR)
 
         question, answer = QNA_DATA[index]
 

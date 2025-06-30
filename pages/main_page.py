@@ -1,6 +1,9 @@
 import allure
 from pages.base_page import BasePage
 from locators.main_page_locators import MainPageLocators
+from locators.general_locators import GeneralLocators
+from selenium.common.exceptions import TimeoutException
+
 
 class MainPage(BasePage):
     @allure.step('Клик на вопрос')
@@ -21,8 +24,17 @@ class MainPage(BasePage):
     
     @allure.step('Проверка пары вопрос-ответ')
     def check_question_and_answer(self, index, question_input, answer_input):
+        self.safe_submit_cookie_button()
         question_text = self.get_question_text(index)
         self.click_to_question(index)
         answer_text = self.get_answer_text(index)
         result = question_text == question_input and answer_text == answer_input
         return result
+    
+    @allure.step('Подтверждение использования cookie')
+    def safe_submit_cookie_button(self):
+        "Подтвердить использование кук (безопасно)"
+        try:
+            self.click_to_element(GeneralLocators.COOKIE_BUTTON_LOCATOR)
+        except TimeoutException:
+            return

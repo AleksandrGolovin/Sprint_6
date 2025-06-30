@@ -2,7 +2,6 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import TimeoutException
 
 
 class BasePage:
@@ -54,10 +53,3 @@ class BasePage:
         method, locator = locator_unformatted
         locator: str = locator.format(index=element_index)
         return method, locator
-    
-    def safe_submit_cookie_button(self, locator):
-        "Подтвердить использование кук (безопасно)"
-        try:
-            self.click_to_element(locator)
-        except TimeoutException:
-            return
