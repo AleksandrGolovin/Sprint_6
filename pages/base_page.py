@@ -16,6 +16,10 @@ class BasePage:
         "Перейти на страницу по адресу"
         self.driver.get(url)
 
+    def get_current_url(self):
+        "Получить адрес текущий страницы"
+        return self.driver.current_url
+
     def find_element_with_wait(self, locator):
         "Найти элемент на странице"
         self.wait.until(ec.visibility_of_element_located(locator))
@@ -61,3 +65,7 @@ class BasePage:
             self.click_to_element(locator)
         except TimeoutException:
             return
+        
+    def switch_to_last_tab(self):
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])

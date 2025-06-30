@@ -3,6 +3,7 @@ import allure
 from pages.main_page import MainPage
 from data import Urls, QNA_DATA
 
+
 @allure.title('Тестовые сценарии главной страницы')
 class TestMainPage:
     "Тестовые сценарии для главной страницы"

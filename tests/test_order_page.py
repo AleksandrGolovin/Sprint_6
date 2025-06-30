@@ -4,6 +4,7 @@ from locators.main_page_locators import MainPageLocators
 from pages.order_page import OrderPage
 from data import Urls, ORDER_DATA_1, ORDER_DATA_2
 
+
 @allure.title('Тестовые сценарии страницы заказов')
 class TestOrderPage:
     "Тестовые сценарии для страницы заказов"
@@ -26,5 +27,5 @@ class TestOrderPage:
         order_page.go_to_url(Urls.MAIN_PAGE)
         order_page.begin_create_order(create_order_locator)
         order_page.create_order(order_data)
-        
+
         assert order_page.check_order_is_success()
