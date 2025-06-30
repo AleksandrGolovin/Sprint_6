@@ -41,18 +41,18 @@ class BasePage:
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()
 
-    def format_locator(self, locator_unformatted, element_index):
-        """Форматировать локатор по метке {index}
+    def format_locator(self, locator_unformatted, element_data):
+        """Форматировать локатор по метке {data}
 
         Args:
-            locator_unformatted (tuple (By, str)): локатор с меткой индекса элемента {index}
-            element_index (int): индекс элемента
+            locator_unformatted (tuple (By, str)): локатор с меткой {data}
+            element_data (int): данные элемента
 
         Returns:
-            tuple(By, str): форматированный локатор с индексом
+            tuple(By, str): форматированный локатор с данными
         """
         method, locator = locator_unformatted
-        locator: str = locator.format(index=element_index)
+        locator: str = locator.format(data=element_data)
         return method, locator
     
     def safe_submit_cookie_button(self, locator):

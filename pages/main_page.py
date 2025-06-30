@@ -7,18 +7,18 @@ from locators.general_locators import GeneralLocators
 class MainPage(BasePage):
     @allure.step('Клик на вопрос')
     def click_to_question(self, index):
-        locator_formatted = self.format_locator(MainPageLocators.QUESTION_LOCATOR, index)
-        self.scroll_to_element(MainPageLocators.QUESTION_LOCATOR_TO_SCROLL)
+        locator_formatted = self.format_locator(MainPageLocators.QUESTION, index)
+        self.scroll_to_element(MainPageLocators.QUESTION_FOR_SCROLL)
         self.click_to_element(locator_formatted)
 
     @allure.step('Получение текста вопроса')
     def get_question_text(self, index):
-        locator_formatted = self.format_locator(MainPageLocators.QUESTION_LOCATOR, index)
+        locator_formatted = self.format_locator(MainPageLocators.QUESTION, index)
         return self.get_text_from_element(locator_formatted)
 
     @allure.step('Получение текста ответа')
     def get_answer_text(self, index):
-        locator_formatted = self.format_locator(MainPageLocators.ANSWER_LOCATOR, index)
+        locator_formatted = self.format_locator(MainPageLocators.ANSWER, index)
         return self.get_text_from_element(locator_formatted)
     
     @allure.step('Проверка пары вопрос-ответ')

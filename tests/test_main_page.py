@@ -1,6 +1,5 @@
 import pytest
 import allure
-from locators.general_locators import GeneralLocators
 from pages.main_page import MainPage
 from data import Urls, QNA_DATA
 

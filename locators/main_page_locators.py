@@ -2,6 +2,9 @@ from selenium.webdriver.common.by import By
 
 
 class MainPageLocators:
-    QUESTION_LOCATOR = By.ID, 'accordion__heading-{index}'
-    ANSWER_LOCATOR = By.ID, 'accordion__panel-{index}'
-    QUESTION_LOCATOR_TO_SCROLL = By.ID, 'accordion__heading-7'
+    QUESTION = By.ID, 'accordion__heading-{index}'
+    ANSWER = By.ID, 'accordion__panel-{index}'
+    QUESTION_FOR_SCROLL = By.ID, 'accordion__heading-7'
+    
+    BUTTON_ORDER_UPPER = By.XPATH, ".//button[@class='Button_Button__ra12g']"
+    BUTTON_ORDER_LOWER = By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"

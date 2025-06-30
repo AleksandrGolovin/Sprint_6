@@ -10,6 +10,16 @@ QNA_DATA = [
     ('Я жизу за МКАДом, привезёте?', 'Да, обязательно. Всем самокатов! И Москве, и Московской области.')
 ]
 
+ORDER_DATA = {
+    "first_name": "Имя",
+    "last_name": "Фамилия",
+    "address": "г. Москва, ул. Тверская, д. 14",
+    "station": "Преображенская площадь",
+    "phone": "+71234567890",
+    "date": "12.12.2025",
+    "period": "трое суток"
+}
+
 class Urls:
     MAIN_PAGE = 'https://qa-scooter.praktikum-services.ru/'
     ORDER_PAGE = 'https://qa-scooter.praktikum-services.ru/order'
