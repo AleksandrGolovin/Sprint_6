@@ -52,9 +52,3 @@
 - Вопросы-ответы (QNA_DATA)
 - Данные для заказов (ORDER_DATA_1, ORDER_DATA_2)
 - URL-адреса страниц (Urls)
-
----
-
-## Запуск тестов
-```bash
-pytest -v tests/
